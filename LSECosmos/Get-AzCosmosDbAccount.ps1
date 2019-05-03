@@ -13,7 +13,7 @@ function Get-AzCosmosDbAccount {
     Accepts wildcards
     
     .EXAMPLE
-    Get-AzCosmosDbAccount -Name ncusoaasprodcosmos
+    Get-AzCosmosDbAccount -Name mycosmos*
 
     Name              : mycosmosaccount
     ResourceGroupName : mycosmosaccountRG
