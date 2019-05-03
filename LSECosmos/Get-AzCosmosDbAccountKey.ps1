@@ -8,14 +8,16 @@ function Get-AzCosmosDbAccountKey {
 
         Name                    PrimaryMasterKey                                                                         SecondaryMasterKey
         ----                    ----------------                                                                         ------------------
-        carloctestcosmosaccount wdWZokK3Bx0UEj4sVQ9QjkEX3UUrwjivqZeXKWKReBQXszKl1qWde5PURcXn3VCgBf1XNoOhNjDYrl09DT9MRw== nZgiW1ycgHAvXcd3X4kOjMlxG27qUxp3uRweYYiQ7fwTuM3N7WXFPIzFm1I4nP8BzKhmAdO02VC6RptbMI7Ahw==
+        carloctestcosmosaccount 
+        xxxxx
+        xxxxx
 
     .EXAMPLE
         Get-AzCosmosDbAccount -Name mycosmos* | Get-AzCosmosDbAccountKey | Format-List
 
         Name               : mycosmosdbaccount
-        PrimaryMasterKey   : wdWZokK3Bx0UEj4sVQ9QjkEX3UUrwjivqZeXKWKReBQXszKl1qWde5PURcXn3VCgBf1XNoOhNjDYrl09DT9MRw==
-        SecondaryMasterKey : nZgiW1ycgHAvXcd3X4kOjMlxG27qUxp3uRweYYiQ7fwTuM3N7WXFPIzFm1I4nP8BzKhmAdO02VC6RptbMI7Ahw==
+        PrimaryMasterKey   : xxxxx
+        SecondaryMasterKey : xxxxx
 
     .NOTES
         This function uses Get-AzResource -ApiVersion '2016-03-31'
