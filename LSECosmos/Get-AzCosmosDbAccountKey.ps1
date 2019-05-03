@@ -6,11 +6,9 @@ function Get-AzCosmosDbAccountKey {
     .EXAMPLE
         Get-AzCosmosDbAccountKey -Name mycosmosdbaccount -ResourceGroupName mycosmosdbaccountRG
 
-        Name                    PrimaryMasterKey                                                                         SecondaryMasterKey
-        ----                    ----------------                                                                         ------------------
-        carloctestcosmosaccount 
-        xxxxx
-        xxxxx
+        Name                    PrimaryMasterKey         SecondaryMasterKey
+        ----                    ----------------         ------------------
+        carloctestcosmosaccount xxxxx                    xxxxx           
 
     .EXAMPLE
         Get-AzCosmosDbAccount -Name mycosmos* | Get-AzCosmosDbAccountKey | Format-List
