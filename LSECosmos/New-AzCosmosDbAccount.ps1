@@ -16,7 +16,7 @@ function New-AzCosmosDbAccount {
     Disaster Recover (failover) location for the new CosmosDb Account
     
     .EXAMPLE
-    An example
+    New-AzCosmosDbAccount -AccountName carloctestcosmosaccount -ResourceGroupName carloctestrg -Location centralus -DisasterRecoveryLocation southcentralus
     #>
     [CmdletBinding()]
     param (
