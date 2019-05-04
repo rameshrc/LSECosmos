@@ -35,15 +35,11 @@ function Get-AzCosmosDbAccountKey {
         $keys = Invoke-AzResourceAction -Action 'listKeys' -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2016-03-31" -ResourceGroupName $ResourceGroupName -Name $Name -Force
 
         if ($keys) {
-
             [PSCustomObject]@{
                 'Name'               = $Name;
                 'PrimaryMasterKey'   = $keys.primaryMasterKey;
                 'SecondaryMasterKey' = $keys.secondaryMasterKey
             }
-        }
-        else {
-            Write-Error $Error[0]
         }
 
         $keys = $null
