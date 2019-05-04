@@ -2,23 +2,23 @@ function Remove-AzCosmosDbAccount {
     <#
         .SYNOPSIS
         Short description
-        
+
         .PARAMETER Name
-        CosmosDb Account Name    
-        
+        CosmosDb Account Name
+
         .PARAMETER ResourceGroupName
-        Resource Group to contain the new CosmosDb Account    
-        
+        Resource Group to contain the new CosmosDb Account
+
         .PARAMETER Force
         Suppress confirmation prompt
-        
+
         .EXAMPLE
         Get-AzCosmosDbAccount | Remove-AzCosmosDbAccount -Force
-        
+
         .EXAMPLE
         Remove-AzCosmosDbAccount -Name carloctestcosmosaccount -ResourceGroupName carloctestcosmosaccountRG -Force
     #>
-    
+
     [CmdletBinding(ConfirmImpact = 'High', SupportsShouldProcess)]
     param (
         [parameter(Mandatory, ValueFromPipelineByPropertyName)]

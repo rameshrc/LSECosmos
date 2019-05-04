@@ -3,6 +3,12 @@ function Get-AzCosmosDbAccountKey {
     .SYNOPSIS
         Returns the Primary and Secondary keys for a Cosmos DB account
 
+    .PARAMETER Name
+        CosmosDb Account Name
+
+    .PARAMETER ResourceGroupName
+        Resource Group to contain the new CosmosDb Account
+    
     .EXAMPLE
         Get-AzCosmosDbAccountKey -Name mycosmosdbaccount -ResourceGroupName mycosmosdbaccountRG
 
