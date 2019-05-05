@@ -35,6 +35,6 @@ function Get-AzCosmosDbAccount {
     )
 
     process {
-        Get-AzResource -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2018-11-01' | Where-Object 'ResourceGroupName' -Like $ResourceGroupName | Where-Object 'Name' -Like $AccountName
+        Get-AzResource -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2018-11-01' | Where-Object 'ResourceGroupName' -Like $ResourceGroupName | Where-Object 'Name' -Like $AccountName | Select-Object -Property *, @{l = 'AccountName'; e = { $_.Name } }  -ExcludeProperty 'Name'
     }
 }
