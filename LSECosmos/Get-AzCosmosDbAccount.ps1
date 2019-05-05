@@ -1,17 +1,17 @@
 function Get-AzCosmosDbAccount {
     <#
     .SYNOPSIS
-    Returns information about CosmosDB accounts in the current subscription. 
+    Returns information about CosmosDB accounts in the current subscription.
     You can pass a single Account name or ResourceGroup name
-    
+
     .PARAMETER AccountName
     CosmosDB Account name to return information for
     Accepts wildcards
-    
+
     .PARAMETER ResourceGroupName
     Resource Group containing the CosmosDB account to look for
     Accepts wildcards
-    
+
     .EXAMPLE
     Get-AzCosmosDbAccount -AccountName mycosmos*
 
@@ -24,7 +24,7 @@ function Get-AzCosmosDbAccount {
     .NOTES
     This function uses Get-AzResource -ApiVersion '2018-11-01'
     #>
-    
+
     [CmdletBinding()]
     param (
         [parameter(ValueFromPipeline, ValueFromPipelineByPropertyName, Position = 1)]

@@ -2,19 +2,19 @@ function New-AzCosmosDbAccount {
     <#
     .SYNOPSIS
     Create a new CosmosDb account
-    
+
     .PARAMETER AccountName
     CosmosDb Account Name
-    
+
     .PARAMETER ResourceGroupName
     Resource Group to contain the new CosmosDb Account
-    
+
     .PARAMETER Location
     Location where to create the new CosmosDb Account
-    
+
     .PARAMETER DRLocation
     Disaster Recover (failover) location for the new CosmosDb Account
-    
+
     .EXAMPLE
     New-AzCosmosDbAccount -AccountName carloctestcosmosaccount -ResourceGroupName carloctestrg -Location centralus -DisasterRecoveryLocation southcentralus
     #>
@@ -23,7 +23,7 @@ function New-AzCosmosDbAccount {
         [parameter(Mandatory)]
         [ValidateNotNullOrEmpty()]
         [string]$AccountName,
-    
+
         [parameter(Mandatory)]
         [ValidateNotNullOrEmpty()]
         [string]$ResourceGroupName,
@@ -31,31 +31,31 @@ function New-AzCosmosDbAccount {
         [parameter(Mandatory)]
         [ValidateNotNullOrEmpty()]
         [string]$Location,
-    
+
         [parameter(Mandatory)]
         [ValidateNotNullOrEmpty()]
         [string]$DisasterRecoveryLocation
     )
 
     $locations = @(
-        @{"locationName"       = $Location; 
+        @{"locationName"       = $Location;
             "failoverPriority" = 0
-        }, 
-        @{"locationName"       = $DisasterRecoveryLocation; 
+        },
+        @{"locationName"       = $DisasterRecoveryLocation;
             "failoverPriority" = 1
         }
     )
 
     $consistencyPolicy = @{
         "defaultConsistencyLevel" = "Session";
-        "maxIntervalInSeconds"    = "5"; 
+        "maxIntervalInSeconds"    = "5";
         "maxStalenessPrefix"      = "100"
     }
 
     $DBProperties = @{
-        "databaseAccountOfferType" = "Standard"; 
-        "locations"                = $locations; 
-        "consistencyPolicy"        = $consistencyPolicy; 
+        "databaseAccountOfferType" = "Standard";
+        "locations"                = $locations;
+        "consistencyPolicy"        = $consistencyPolicy;
     }
 
     New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
