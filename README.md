@@ -15,3 +15,7 @@ Download the zip file or cloune the repo locally: copy the LSECosmos folder unde
 ### macOS
 
 Download the zip file or cloune the repo locally: copy the LSECosmos folder under `/Users/<user>/.local/share/powershell/Modules/` folder
+
+## Credits
+
+- Thanks to [Stephane Lapointe](https://www.linkedin.com/in/stephanelapointe/) for this script to [get the Bearer Token from an existing Powershell session](https://gallery.technet.microsoft.com/scriptcenter/Easily-obtain-AccessToken-3ba6e593/view/Reviews) that I reused as base for my `Get-AzAccessToken`
