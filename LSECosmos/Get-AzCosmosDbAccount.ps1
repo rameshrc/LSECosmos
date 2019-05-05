@@ -4,7 +4,7 @@ function Get-AzCosmosDbAccount {
     Returns information about CosmosDB accounts in the current subscription. 
     You can pass a single Account name or ResourceGroup name
     
-    .PARAMETER Name
+    .PARAMETER AccountName
     CosmosDB Account name to return information for
     Accepts wildcards
     
@@ -13,9 +13,9 @@ function Get-AzCosmosDbAccount {
     Accepts wildcards
     
     .EXAMPLE
-    Get-AzCosmosDbAccount -Name mycosmos*
+    Get-AzCosmosDbAccount -AccountName mycosmos*
 
-    Name              : mycosmosaccount
+    AccountName       : mycosmosaccount
     ResourceGroupName : mycosmosaccountRG
     ResourceType      : Microsoft.DocumentDb/databaseAccounts
     Location          : northcentralus
@@ -28,13 +28,13 @@ function Get-AzCosmosDbAccount {
     [CmdletBinding()]
     param (
         [parameter(ValueFromPipeline, ValueFromPipelineByPropertyName, Position = 1)]
-        [string]$Name = '*',
+        [string]$AccountName = '*',
 
         [parameter(ValueFromPipelineByPropertyName, Position = 2)]
         [string]$ResourceGroupName = '*'
     )
 
     process {
-        Get-AzResource -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2018-11-01' | Where-Object 'ResourceGroupName' -Like $ResourceGroupName | Where-Object 'Name' -Like $Name
+        Get-AzResource -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2018-11-01' | Where-Object 'ResourceGroupName' -Like $ResourceGroupName | Where-Object 'Name' -Like $AccountName
     }
 }

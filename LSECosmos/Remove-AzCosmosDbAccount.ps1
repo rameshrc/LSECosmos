@@ -3,7 +3,7 @@ function Remove-AzCosmosDbAccount {
         .SYNOPSIS
         Short description
 
-        .PARAMETER Name
+        .PARAMETER AccountName
         CosmosDb Account Name
 
         .PARAMETER ResourceGroupName
@@ -16,14 +16,13 @@ function Remove-AzCosmosDbAccount {
         Get-AzCosmosDbAccount | Remove-AzCosmosDbAccount -Force
 
         .EXAMPLE
-        Remove-AzCosmosDbAccount -Name carloctestcosmosaccount -ResourceGroupName carloctestcosmosaccountRG -Force
+        Remove-AzCosmosDbAccount -AccountName carloctestcosmosaccount -ResourceGroupName carloctestcosmosaccountRG -Force
     #>
 
     [CmdletBinding(ConfirmImpact = 'High', SupportsShouldProcess)]
     param (
         [parameter(Mandatory, ValueFromPipelineByPropertyName)]
-        [Alias('AccountName')]
-        [string]$Name,
+        [string]$AccountName,
 
         [parameter(Mandatory, ValueFromPipelineByPropertyName)]
         [string]$ResourceGroupName,
@@ -33,9 +32,9 @@ function Remove-AzCosmosDbAccount {
     )
 
     process {
-        if ($Force -or ($PSCmdlet.ShouldProcess($Name, 'Remove CosmosDb Account'))) {
-            if ($Force -or ($PSCmdlet.ShouldContinue("Remove CosmosDb Account $Name?", 'Confirm remove CosmosDb Account'))) {
-                Remove-AzResource -ResourceName $Name -ResourceGroupName $ResourceGroupName -ResourceType "Microsoft.DocumentDb/databaseAccounts" -Force
+        if ($Force -or ($PSCmdlet.ShouldProcess($AccountName, 'Remove CosmosDb Account'))) {
+            if ($Force -or ($PSCmdlet.ShouldContinue("Remove CosmosDb Account $AccountName?", 'Confirm remove CosmosDb Account'))) {
+                Remove-AzResource -ResourceName $AccountName -ResourceGroupName $ResourceGroupName -ResourceType "Microsoft.DocumentDb/databaseAccounts" -Force
             }
         }
     }

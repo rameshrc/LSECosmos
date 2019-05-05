@@ -3,23 +3,23 @@ function Get-AzCosmosDbAccountKey {
     .SYNOPSIS
         Returns the Primary and Secondary keys for a Cosmos DB account
 
-    .PARAMETER Name
+    .PARAMETER AccountName
         CosmosDb Account Name
 
     .PARAMETER ResourceGroupName
         Resource Group to contain the new CosmosDb Account
-    
-    .EXAMPLE
-        Get-AzCosmosDbAccountKey -Name mycosmosdbaccount -ResourceGroupName mycosmosdbaccountRG
 
-        Name                    PrimaryMasterKey         SecondaryMasterKey
+    .EXAMPLE
+        Get-AzCosmosDbAccountKey -AccountName mycosmosdbaccount -ResourceGroupName mycosmosdbaccountRG
+
+        AccountName             PrimaryMasterKey         SecondaryMasterKey
         ----                    ----------------         ------------------
-        carloctestcosmosaccount xxxxx                    xxxxx           
+        carloctestcosmosaccount xxxxx                    xxxxx
 
     .EXAMPLE
-        Get-AzCosmosDbAccount -Name mycosmos* | Get-AzCosmosDbAccountKey | Format-List
+        Get-AzCosmosDbAccount -AccountName mycosmos* | Get-AzCosmosDbAccountKey | Format-List
 
-        Name               : mycosmosdbaccount
+        AccountName        : mycosmosdbaccount
         PrimaryMasterKey   : xxxxx
         SecondaryMasterKey : xxxxx
 
@@ -29,8 +29,7 @@ function Get-AzCosmosDbAccountKey {
     [CmdletBinding()]
     param (
         [parameter(Mandatory, ValueFromPipelineByPropertyName)]
-        [Alias('AccountName')]
-        [string]$Name,
+        [string]$AccountName,
 
         [parameter(Mandatory, ValueFromPipelineByPropertyName)]
         [string]$ResourceGroupName
@@ -38,11 +37,11 @@ function Get-AzCosmosDbAccountKey {
 
     process {
         $keys = $null
-        $keys = Invoke-AzResourceAction -Action 'listKeys' -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2016-03-31" -ResourceGroupName $ResourceGroupName -Name $Name -Force
+        $keys = Invoke-AzResourceAction -Action 'listKeys' -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2016-03-31" -ResourceGroupName $ResourceGroupName -Name $AccountName -Force
 
         if ($keys) {
             [PSCustomObject]@{
-                'Name'               = $Name;
+                'AccountName'        = $AccountName;
                 'PrimaryMasterKey'   = $keys.primaryMasterKey;
                 'SecondaryMasterKey' = $keys.secondaryMasterKey
             }
