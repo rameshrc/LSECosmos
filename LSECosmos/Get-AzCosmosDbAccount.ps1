@@ -35,6 +35,14 @@ function Get-AzCosmosDbAccount {
     )
 
     process {
-        Get-AzResource -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2018-11-01' | Where-Object 'ResourceGroupName' -Like $ResourceGroupName | Where-Object 'Name' -Like $AccountName | Select-Object -Property *, @{l = 'AccountName'; e = { $_.Name } }  -ExcludeProperty 'Name'
+        # Get-AzResource -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2018-11-01' | Where-Object 'ResourceGroupName' -Like $ResourceGroupName | Where-Object 'Name' -Like $AccountName #| Select-Object -Property *, @{l = 'AccountName'; e = { $_.Name } }  -ExcludeProperty 'Name'
+        $resources = $null
+        $resources = Get-AzResource -ResourceType 'Microsoft.DocumentDb/databaseAccounts' -ApiVersion '2018-11-01' | Where-Object 'ResourceGroupName' -Like $ResourceGroupName | Where-Object 'Name' -Like $AccountName | Select-Object -Property *, @{l = 'AccountName'; e = { $_.Name } } #-ExcludeProperty 'Name'
+
+        foreach ($res in $resources) {
+            $res.PSOBject.TypeNames.Clear()
+            $res.PSObject.TypeNames.Insert(0, 'Microsoft.Azure.Commands.ResourceManager.Cmdlets.SdkModels.PSResource')
+            $res
+        }
     }
 }
