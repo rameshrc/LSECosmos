@@ -2,7 +2,7 @@ Remove-Module 'LSECosmos' -Force -ErrorAction 'SilentlyContinue'
 Import-Module $PSScriptRoot/../LSECosmos/LSECosmos.psm1 -Force -ErrorAction 'Stop'
 
 Describe 'Get-AzCosmosDbAccount' {
-    InModuleScope LSECosmos {
+    InModuleScope 'LSECosmos' {
         Mock -CommandName 'Get-AzResource' -MockWith {
             # make sure to return the proper object type
             $generic = [Microsoft.Azure.Management.ResourceManager.Models.GenericResource]::new()
@@ -32,7 +32,7 @@ Describe 'Get-AzCosmosDbAccount' {
                 @{'Filter' = 'mycosmosac*'; 'Expected' = 'mycosmosaccount' }
                 @{'Filter' = '*cosmosac*'; 'Expected' = 'mycosmosaccount' }
                 @{'Filter' = '*osaccount'; 'Expected' = 'mycosmosaccount' }
-            ) {
+            ) -Test {
                 param ($Filter, $Expected)
 
                 $account = LSECosmos\Get-AzCosmosDbAccount -AccountName $Filter

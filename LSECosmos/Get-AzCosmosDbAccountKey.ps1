@@ -20,9 +20,10 @@ function Get-AzCosmosDbAccountKey {
         Get-AzCosmosDbAccount -AccountName mycosmos* | Get-AzCosmosDbAccountKey | Format-List
 
         AccountName        : mycosmosdbaccount
-        PrimaryMasterKey   : xxxxx
-        SecondaryMasterKey : xxxxx
-
+        PrimaryMasterKey           : xxxxx
+        PrimaryReadonlyMasterKey   : xxxxx
+        SecondaryMasterKey         : xxxxx
+        SecondaryReadonlyMasterKey : xxxxx
     .NOTES
         This function uses Get-AzResource -ApiVersion '2016-03-31'
     #>
@@ -41,9 +42,11 @@ function Get-AzCosmosDbAccountKey {
 
         if ($keys) {
             [PSCustomObject]@{
-                'AccountName'        = $AccountName;
-                'PrimaryMasterKey'   = $keys.primaryMasterKey;
-                'SecondaryMasterKey' = $keys.secondaryMasterKey
+                'AccountName'                = $AccountName;
+                'PrimaryMasterKey'           = $keys.primaryMasterKey;
+                'PrimaryReadonlyMasterKey'   = $keys.primaryReadonlyMasterKey;
+                'SecondaryMasterKey'         = $keys.secondaryMasterKey;
+                'SecondaryReadonlyMasterKey' = $keys.secondaryReadonlyMasterKey
             }
         }
 
