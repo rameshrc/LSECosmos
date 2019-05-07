@@ -1,17 +1,10 @@
 Remove-Module 'LSECosmos' -Force -ErrorAction 'SilentlyContinue'
 Import-Module $PSScriptRoot/../LSECosmos/LSECosmos.psm1 -Force -ErrorAction 'Stop'
-# . $PSScriptRoot/../LSECosmos/Get-AzCosmosDbAccount.ps1
 
 Describe 'Get-AzCosmosDbAccount' {
     InModuleScope LSECosmos {
         Mock -CommandName 'Get-AzResource' -MockWith {
-            # New-MockObject -Type 'Microsoft.Azure.Commands.ResourceManager.Cmdlets.SdkModels.PSResource' @{
-            #     'Name'              = 'mycosmosaccount';
-            #     'ResourceGroupName' = 'mycosmosaccountRG';
-            #     'ResourceType'      = 'Microsoft.DocumentDb/databaseAccounts';
-            #     'Location'          = 'northcentralus';
-            #     'ResourceId'        = '/subscriptions/f897c2fa-a735-4e03-b019-890cd2f7109e/resourceGroups/mycosmosaccountRG/providers/Microsoft.DocumentDb/databaseAccounts/mycosmosaccount'
-            # }
+            # make sure to return the proper object type
             $generic = [Microsoft.Azure.Management.ResourceManager.Models.GenericResource]::new()
             $resource = [Microsoft.Azure.Commands.ResourceManager.Cmdlets.SdkModels.PSResource]::new($generic)
             $resource.Name = 'mycosmosaccount'
@@ -24,9 +17,7 @@ Describe 'Get-AzCosmosDbAccount' {
         }
 
         Context "Without input parameters" {
-            It "Should return a PSCustomObject object type" {
-                # LSECosmos\Get-AzCosmosDbAccount | Should -BeOfType [pscustomobject]
-                # Get-AzCosmosDbAccount | Should -BeOfType 'Selected.Microsoft.Azure.Commands.ResourceManager.Cmdlets.SdkModels.PSResource'
+            It "Should return a 'Microsoft.Azure.Commands.ResourceManager.Cmdlets.SdkModels.PSResource' object type" {
                 LSECosmos\Get-AzCosmosDbAccount | Should -BeOfType 'Microsoft.Azure.Commands.ResourceManager.Cmdlets.SdkModels.PSResource'
             }
 
@@ -46,13 +37,11 @@ Describe 'Get-AzCosmosDbAccount' {
 
                 $account = LSECosmos\Get-AzCosmosDbAccount -AccountName $Filter
                 $account.AccountName | Should -Be 'mycosmosaccount'
-                # $account.Name | Should -Be 'mycosmosaccount'
             }
 
             It 'Given invalid AccountName "nonexisting" it returns NULL' {
                 $account = LSECosmos\Get-AzCosmosDbAccount -AccountName 'nonexisting'
                 $account.AccountName | Should -BeNullOrEmpty
-                # $account.Name | Should -BeNullOrEmpty
             }
         }
     }
