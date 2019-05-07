@@ -8,15 +8,17 @@ Describe 'New-AzCosmosDbAccount' {
         }
 
         Context 'Validate input parameters' {
-            It "Passing NULL as <parameter> it throws" -TestCases @(
+            It "Passing NULL to Mandatory parameters, it throws" -TestCases @(
                 @{ 'AccountName' = $null; 'ResourceGroupName' = 'cosmosResourceGroup'; 'Location' = 'northcentralus'; 'DisasterRecoveryLocation' = 'southcentralus' } 
                 @{ 'AccountName' = 'newcosmosaccount'; 'ResourceGroupName' = $null; 'Location' = 'northcentralus'; 'DisasterRecoveryLocation' = 'southcentralus' }
                 @{ 'AccountName' = 'newcosmosaccount'; 'ResourceGroupName' = 'cosmosResourceGroup'; 'Location' = $null; 'DisasterRecoveryLocation' = 'southcentralus' }
                 @{ 'AccountName' = 'newcosmosaccount'; 'ResourceGroupName' = 'cosmosResourceGroup'; 'Location' = 'northcentralus'; 'DisasterRecoveryLocation' = $null }
+                @{ 'AccountName' = $null; 'ResourceGroupName' = $null; 'Location' = $null; 'DisasterRecoveryLocation' = $null }
+                @{ }
             ) -Test {
                 param ($AccountName, $ResourceGroupName, $Location, $DisasterRecoveryLocation)
 
-                LSECosmos\New-AzCosmosDbAccount -AccountName $AccountName -ResourceGroupName $ResourceGroupName -Location $Location -DisasterRecoveryLocation $DisasterRecoveryLocation | Should -Throw
+                { LSECosmos\New-AzCosmosDbAccount -AccountName $AccountName -ResourceGroupName $ResourceGroupName -Location $Location -DisasterRecoveryLocation $DisasterRecoveryLocation } | Should -Throw
             }
         }
     }
