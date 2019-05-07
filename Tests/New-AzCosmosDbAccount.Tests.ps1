@@ -4,7 +4,7 @@ Import-Module $PSScriptRoot/../LSECosmos/LSECosmos.psm1 -Force -ErrorAction 'Sto
 Describe 'New-AzCosmosDbAccount' {
     InModuleScope 'LSECosmos' {
         Mock -CommandName 'New-AzResource' -MockWith {
-            return
+            return $true
         }
 
         Context 'Validate input parameters' {
@@ -13,7 +13,6 @@ Describe 'New-AzCosmosDbAccount' {
                 @{ 'AccountName' = 'newcosmosaccount'; 'ResourceGroupName' = $null; 'Location' = 'northcentralus'; 'DisasterRecoveryLocation' = 'southcentralus' }
                 @{ 'AccountName' = 'newcosmosaccount'; 'ResourceGroupName' = 'cosmosResourceGroup'; 'Location' = $null; 'DisasterRecoveryLocation' = 'southcentralus' }
                 @{ 'AccountName' = 'newcosmosaccount'; 'ResourceGroupName' = 'cosmosResourceGroup'; 'Location' = 'northcentralus'; 'DisasterRecoveryLocation' = $null }
-                @{ 'AccountName' = $null; 'ResourceGroupName' = $null; 'Location' = $null; 'DisasterRecoveryLocation' = $null }
                 @{ }
             ) -Test {
                 param ($AccountName, $ResourceGroupName, $Location, $DisasterRecoveryLocation)
