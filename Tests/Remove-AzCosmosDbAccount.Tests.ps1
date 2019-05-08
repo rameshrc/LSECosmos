@@ -8,7 +8,7 @@ Describe 'Remove-AzCosmosDbAccount' {
         }
 
         It "Passing NULL to Mandatory parameters, it throws" -TestCases @(
-            @{ 'AccountName' = $null; 'ResourceGroupName' = 'cosmosResourceGroup' } 
+            @{ 'AccountName' = $null; 'ResourceGroupName' = 'cosmosResourceGroup' }
             @{ 'AccountName' = 'newcosmosaccount'; 'ResourceGroupName' = $null }
             @{ }
         ) -Test {
@@ -16,5 +16,5 @@ Describe 'Remove-AzCosmosDbAccount' {
 
             { LSECosmos\Remove-AzCosmosDbAccount -AccountName $AccountName -ResourceGroupName $ResourceGroupName } | Should -Throw
         }
-    }       
+    }
 }

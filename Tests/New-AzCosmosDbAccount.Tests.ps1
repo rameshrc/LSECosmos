@@ -9,7 +9,7 @@ Describe 'New-AzCosmosDbAccount' {
 
         Context 'Validate input parameters' {
             It "Passing NULL to Mandatory parameters, it throws" -TestCases @(
-                @{ 'AccountName' = $null; 'ResourceGroupName' = 'cosmosResourceGroup'; 'Location' = 'northcentralus'; 'DisasterRecoveryLocation' = 'southcentralus' } 
+                @{ 'AccountName' = $null; 'ResourceGroupName' = 'cosmosResourceGroup'; 'Location' = 'northcentralus'; 'DisasterRecoveryLocation' = 'southcentralus' }
                 @{ 'AccountName' = 'newcosmosaccount'; 'ResourceGroupName' = $null; 'Location' = 'northcentralus'; 'DisasterRecoveryLocation' = 'southcentralus' }
                 @{ 'AccountName' = 'newcosmosaccount'; 'ResourceGroupName' = 'cosmosResourceGroup'; 'Location' = $null; 'DisasterRecoveryLocation' = 'southcentralus' }
                 @{ 'AccountName' = 'newcosmosaccount'; 'ResourceGroupName' = 'cosmosResourceGroup'; 'Location' = 'northcentralus'; 'DisasterRecoveryLocation' = $null }
