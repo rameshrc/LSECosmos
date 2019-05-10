@@ -27,11 +27,11 @@ steps:
     script: '# Write your powershell commands here.
       
       # Write-Host "Hello World"
-      write-host "pwd"
-      write-host $psscriptroot
-      install-module "az.Accounts" -scope CurrentUser -Force
-      install-module "az.resources" -scope CurrentUser -Force
-      write-host (gmo -List | out-string)
+      Write-Host $(pwd)
+      Write-Host $psscriptroot
+      Install-Module "az.Accounts" -scope CurrentUser -Force
+      Install-Module "az.resources" -scope CurrentUser -Force
+      Write-Host $(gmo -List | out-string)
 
       
       # Use the environment variables input below to pass secret variables to this script.'
