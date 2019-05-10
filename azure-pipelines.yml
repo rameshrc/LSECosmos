@@ -16,10 +16,30 @@ steps:
 #     Install-Module Az.Resources -Scope CurrentUser -Force
 #   displayName: 'install az modules'
 
-- script: |
-    echo List available modules
-    gmo -list
-  displayName: 'list available modules'
+# - script: |
+#     echo List available modules
+#     gmo -list
+#   displayName: 'list available modules'
+
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: '# Write your powershell commands here.
+      
+      # Write-Host "Hello World"
+      pwd
+      $psscriptroot
+      gmo -List
+
+      
+      # Use the environment variables input below to pass secret variables to this script.'
+    pwsh: true
+    workingDirectory: 'd:\\a\\1\\s\\'
+
+# - task: AzurePowerShell@4
+#   inputs:
+#     ScriptType: 'InlineScript'
+#     azurePowerShellVersion: 'LatestVersion'
 
 # - task: Pester Powershell unittest@2
 #   inputs:
