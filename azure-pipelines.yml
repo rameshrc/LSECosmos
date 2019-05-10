@@ -11,7 +11,7 @@ pool:
 
 steps:
 - powershell: |
-    gal
+    gl
     dir -rec
 - task: Pester Powershell unittest@2
   inputs:
