@@ -10,31 +10,24 @@ pool:
   vmImage: 'windows-2019'
 
 steps:
-# - script: echo Hello, world!
-#   displayName: 'Run a one-line script'
-
 # - script: |
-#     echo Add other tasks to build, test, and deploy your project.
-#     echo See https://aka.ms/yaml
-#   displayName: 'Run a multi-line script'
-
-- script: |
-    echo Install Az.* modules
-    Install-Module Az.Accounts -Scope CurrentUser -Force
-    Install-Module Az.Resources -Scope CurrentUser -Force
-  displayName: 'install az modules'
+#     echo Install Az.* modules
+#     Install-Module Az.Accounts -Scope CurrentUser -Force
+#     Install-Module Az.Resources -Scope CurrentUser -Force
+#   displayName: 'install az modules'
 
 - script: |
     echo List available modules
     gmo -list
   displayName: 'list available modules'
 
-- task: Pester Powershell unittest@2
-  inputs:
-    ItemSpec: 'Tests\*.tests.ps1'
-    FailOnError: true
+# - task: Pester Powershell unittest@2
+#   inputs:
+#     ItemSpec: 'Tests\*.tests.ps1'
+#     FailOnError: true
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'NUnit'
-    testResultsFiles: '**/TEST-*.xml'
+# - task: PublishTestResults@2
+#   inputs:
+#     testResultsFormat: 'NUnit'
+#     testResultsFiles: '**/TEST-*.xml'
+
