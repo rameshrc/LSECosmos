@@ -26,10 +26,12 @@ steps:
     targetType: 'inline'
     script: '# Write your powershell commands here.
       
-      Write-Host "Hello World"
-      write-host pwd
+      # Write-Host "Hello World"
+      write-host "pwd"
       write-host $psscriptroot
-      write-host (gmo -List)
+      install-module "az.Accounts" -scope CurrentUser -Force
+      install-module "az.resources" -scope CurrentUser -Force
+      write-host (gmo -List | out-string)
 
       
       # Use the environment variables input below to pass secret variables to this script.'
