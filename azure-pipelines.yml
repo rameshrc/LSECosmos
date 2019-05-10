@@ -18,6 +18,13 @@ steps:
 #     echo See https://aka.ms/yaml
 #   displayName: 'Run a multi-line script'
 
+- script: echo Install Az.* modules
+  Install-Module Az.Accounts -Score CurrentUser -Force
+  Install-Module Az.Resources -Score CurrentUser -Force
+
+- script: List available modules
+  gmo -list
+
 - task: Pester Powershell unittest@2
   inputs:
     ItemSpec: 'Tests\*.tests.ps1'
