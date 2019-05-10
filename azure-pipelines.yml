@@ -18,12 +18,14 @@ steps:
 #     echo See https://aka.ms/yaml
 #   displayName: 'Run a multi-line script'
 
-- script: echo Install Az.* modules
-    Install-Module Az.Accounts -Score CurrentUser -Force
-    Install-Module Az.Resources -Score CurrentUser -Force
+- script: |
+    echo Install Az.* modules
+    Install-Module Az.Accounts -Scope CurrentUser -Force
+    Install-Module Az.Resources -Scope CurrentUser -Force
   displayName: 'install az modules'
 
-- script: List available modules
+- script: |
+    echo List available modules
     gmo -list
   displayName: 'list available modules'
 
