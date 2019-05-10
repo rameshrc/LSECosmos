@@ -20,7 +20,7 @@ steps:
 
 - task: Pester Powershell unittest@2
   inputs:
-    ItemSpec: '*.tests.ps1'
+    ItemSpec: 'Tests\*.tests.ps1'
     FailOnError: true
 
 - task: PublishTestResults@2
