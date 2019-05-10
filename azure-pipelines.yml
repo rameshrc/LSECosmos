@@ -27,9 +27,9 @@ steps:
     script: '# Write your powershell commands here.
       
       # Write-Host "Hello World"
-      pwd
-      $psscriptroot
-      gmo -List
+      write-host pwd
+      write-host $psscriptroot
+      write-host (gmo -List)
 
       
       # Use the environment variables input below to pass secret variables to this script.'
