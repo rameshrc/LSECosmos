@@ -1,7 +1,7 @@
-"current location: $(gl)"
+"current location: $(Get-Location)"
 "script root: $PSScriptRoot"
 "retrieve available modules"
-$modules = gmo -list
+$modules = Get-Module -list
 
 if ($modules.name -notcontains 'az.accounts') {
     Install-Module az.accounts -Scope CurrentUser -Force -SkipPublisherCheck
