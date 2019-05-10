@@ -3,12 +3,16 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+name: $(Build.DefinitionName)_$(Date:yyyyMMdd))
+
 trigger:
 - master
 
 pool:
   vmImage: 'windows-2019'
 
-steps:
-- pwsh: gv
+- task: Pester Powershell unittest@2
+  inputs:
+    ItemSpec: '*.tests.ps1'
+    FailOnError: true
 
