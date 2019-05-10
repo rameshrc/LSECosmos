@@ -12,6 +12,7 @@ pool:
 steps:
 - powershell: |
     gl
+    $psscriptroot
     dir -rec
 - task: Pester Powershell unittest@2
   inputs:
