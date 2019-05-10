@@ -11,8 +11,7 @@ trigger:
 pool:
   vmImage: 'windows-2019'
 
-- task: Pester Powershell unittest@2
-  inputs:
-    ItemSpec: '*.tests.ps1'
-    FailOnError: true
+- pwsh: 
+  steps:
+    - scripts: dir pwd -rec
 
