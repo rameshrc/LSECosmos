@@ -1,3 +1,5 @@
+[![Build Status](https://carlocardella.visualstudio.com/LSECosmos%20to%20Powershell%20Gallery/_apis/build/status/carlocardella.LSECosmos?branchName=master)](https://carlocardella.visualstudio.com/LSECosmos%20to%20Powershell%20Gallery/_build/latest?definitionId=6&branchName=master)
+
 # LSECosmos
 [CloudNotes.io](https://www.cloudnotes.io)
 
