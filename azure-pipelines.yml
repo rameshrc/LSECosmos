@@ -24,3 +24,4 @@ steps:
     scriptFolder: '$(System.DefaultWorkingDirectory)\*'
     resultsFile: '$(System.DefaultWorkingDirectory)\Test-Pester.XML'
     run32Bit: False
+
