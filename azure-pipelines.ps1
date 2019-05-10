@@ -13,4 +13,4 @@ if ($modules.Name -notcontains 'pester') {
     Install-Module -Name Pester -Force -SkipPublisherCheck
 }
 
-Invoke-Pester -Script ./Tests/ -OutputFile "./Test-Pester.XML" -OutputFormat 'NUnitXML' -CodeCoverage "./LSECosmos/*.ps1"
+Invoke-Pester -Script "./Tests/" -OutputFile "./Test-Pester.XML" -OutputFormat 'NUnitXML' -CodeCoverage "./LSECosmos/*.ps1"
