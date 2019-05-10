@@ -10,6 +10,9 @@ pool:
   vmImage: 'windows-2019'
 
 steps:
+- powershell: |
+    gal
+    dir -rec
 - task: Pester Powershell unittest@2
   inputs:
     ItemSpec: 'Tests/*.Tests.ps1'
