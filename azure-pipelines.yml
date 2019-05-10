@@ -12,6 +12,6 @@ pool:
 steps:
 - task: Pester Powershell unittest@2
   inputs:
-    ItemSpec: '*.tests.ps1'
+    ItemSpec: 'Tests/*.Tests.ps1'
     TestParams: '-Path ./Tests/'
     FailOnError: true
