@@ -1,5 +1,6 @@
 "current location: $(gl)"
 "script root: $PSScriptRoot"
+"retrieve available modules"
 $modules = gmo -list
 
 if ($modules.name -notcontains 'az.accounts') {
@@ -12,6 +13,4 @@ if ($modules.Name -notcontains 'pester') {
     Install-Module -Name Pester -Force -SkipPublisherCheck
 }
 
-# invoke-pester ./Tests/
-# Invoke-Pester -Script $(System.DefaultWorkingDirectory)\MyFirstModule.test.ps1 -OutputFile $(System.DefaultWorkingDirectory)\Test-Pester.XML -OutputFormat NUnitXML
 Invoke-Pester -Script ./Tests/ -OutputFile "./Test-Pester.XML" -OutputFormat 'NUnitXML' -CodeCoverage "./LSECosmos/*.ps1"
