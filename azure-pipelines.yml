@@ -23,20 +23,27 @@ steps:
 
 - task: PowerShell@2
   inputs:
-    targetType: 'inline'
-    script: '# Write your powershell commands here.
+    filePath: 'azure-pipelines.ps1'
+    pwsh: true
+
+
+
+# - task: PowerShell@2
+#   inputs:
+#     targetType: 'inline'
+#     script: '# Write your powershell commands here.
       
-      # Write-Host "Hello World"
-      Write-Host $(pwd)
-      Write-Host $psscriptroot
-      Install-Module "az.Accounts" -scope CurrentUser -Force
-      Install-Module "az.resources" -scope CurrentUser -Force
-      Write-Host $(gmo -List | out-string)
+#       # Write-Host "Hello World"
+#       Write-Host $(pwd)
+#       Write-Host $psscriptroot
+#       Install-Module "az.Accounts" -scope CurrentUser -Force
+#       Install-Module "az.resources" -scope CurrentUser -Force
+#       Write-Host $(gmo -List | out-string)
 
       
-      # Use the environment variables input below to pass secret variables to this script.'
-    pwsh: true
-    workingDirectory: 'd:\\a\\1\\s\\'
+#       # Use the environment variables input below to pass secret variables to this script.'
+#     pwsh: true
+#     workingDirectory: 'd:\\a\\1\\s\\'
 
 # - task: AzurePowerShell@4
 #   inputs:
