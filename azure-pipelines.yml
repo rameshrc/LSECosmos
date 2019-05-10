@@ -26,7 +26,7 @@ steps:
     targetType: 'inline'
     script: '# Write your powershell commands here.
       
-      # Write-Host "Hello World"
+      Write-Host "Hello World"
       write-host pwd
       write-host $psscriptroot
       write-host (gmo -List)
