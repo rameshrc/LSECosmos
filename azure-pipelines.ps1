@@ -5,4 +5,5 @@ install-module az.resources -scope currentuser -force
 install-module pester -scope currentuser -force
 # gmo -list
 
-invoke-pester ./LSECosmos/Tests
+dir -Recurse
+# invoke-pester ./LSECosmos/Tests
