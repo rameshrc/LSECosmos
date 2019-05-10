@@ -19,11 +19,13 @@ steps:
 #   displayName: 'Run a multi-line script'
 
 - script: echo Install Az.* modules
-  Install-Module Az.Accounts -Score CurrentUser -Force
-  Install-Module Az.Resources -Score CurrentUser -Force
+    Install-Module Az.Accounts -Score CurrentUser -Force
+    Install-Module Az.Resources -Score CurrentUser -Force
+  displayName: 'install az modules'
 
 - script: List available modules
-  gmo -list
+    gmo -list
+  displayName: 'list available modules'
 
 - task: Pester Powershell unittest@2
   inputs:
