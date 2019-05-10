@@ -14,8 +14,13 @@ steps:
     gl
     $psscriptroot
     dir -rec
-- task: Pester Powershell unittest@2
+# - task: Pester Powershell unittest@2
+#   inputs:
+#     ItemSpec: 'Tests/*.Tests.ps1'
+#     TestParams: ''
+#     FailOnError: true
+- task: Pester@8
   inputs:
-    ItemSpec: 'Tests/*.Tests.ps1'
-    TestParams: ''
-    FailOnError: true
+    scriptFolder: '$(System.DefaultWorkingDirectory)\*'
+    resultsFile: '$(System.DefaultWorkingDirectory)\Test-Pester.XML'
+    run32Bit: False
