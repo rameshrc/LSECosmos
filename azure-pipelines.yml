@@ -10,18 +10,21 @@ pool:
   vmImage: 'windows-2019'
 
 steps:
-- powershell: |
-    gl
-    $psscriptroot
-    dir -rec
+- pwsh: $(build)
+
+
+# - powershell: |
+#     gl
+#     $psscriptroot
+#     dir -rec
 # - task: Pester Powershell unittest@2
 #   inputs:
 #     ItemSpec: 'Tests/*.Tests.ps1'
 #     TestParams: ''
 #     FailOnError: true
-- task: Pester@8
-  inputs:
-    scriptFolder: '$(System.DefaultWorkingDirectory)\*'
-    resultsFile: '$(System.DefaultWorkingDirectory)\Test-Pester.XML'
-    run32Bit: False
+# - task: Pester@8
+#   inputs:
+#     scriptFolder: '$(System.DefaultWorkingDirectory)\*'
+#     resultsFile: '$(System.DefaultWorkingDirectory)\Test-Pester.XML'
+#     run32Bit: False
 
