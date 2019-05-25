@@ -20,3 +20,9 @@ steps:
     testResultsFormat: 'NUnit'
     testResultsFiles: '**/TEST-*.xml'
 
+- task: AzureKeyVault@1
+  inputs:
+    azureSubscription: 'carlocMsdnMSI'
+    KeyVaultName: 'carlocKeyVault'
+    SecretsFilter: 'LSECosmosPSGalleryKey'
+
