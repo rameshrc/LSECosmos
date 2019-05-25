@@ -26,3 +26,8 @@ steps:
     KeyVaultName: 'carlocKeyVault'
     SecretsFilter: 'LSECosmosPSGalleryKey'
 
+
+- task: PSGalleryPackager@0
+  inputs:
+    apiKey: 'key'
+    path: 'folder'
