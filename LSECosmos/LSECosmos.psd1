@@ -30,7 +30,7 @@
     Copyright              = '(c) Carlo Cardella. All rights reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'CosmosDb management module'
+    Description            = 'CosmosDb management module'
 
     # Minimum version of the PowerShell engine required by this module
     PowerShellVersion      = '5.1'
@@ -95,13 +95,13 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            # Tags = @()
+            Tags       = @('PSEdition_Desktop', 'PSEdition_Core', 'Windows', 'Linux', 'MacOS')
 
             # A URL to the license for this module.
             # LicenseUri = ''
 
             # A URL to the main website for this project.
-            # ProjectUri = ''
+            ProjectUri = 'https://github.com/carlocardella/LSECosmos'
 
             # A URL to an icon representing this module.
             # IconUri = ''
