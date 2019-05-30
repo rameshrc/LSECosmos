@@ -30,7 +30,7 @@
     Copyright              = '(c) Carlo Cardella. All rights reserved.'
 
     # Description of the functionality provided by this module
-    # Description = ''
+    Description = 'CosmosDb management module'
 
     # Minimum version of the PowerShell engine required by this module
     PowerShellVersion      = '5.1'

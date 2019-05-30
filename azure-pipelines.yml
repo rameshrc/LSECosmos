@@ -20,3 +20,16 @@ steps:
     testResultsFormat: 'NUnit'
     testResultsFiles: '**/TEST-*.xml'
 
+# - task: AzureKeyVault@1
+#   inputs:
+#     azureSubscription: 'carlocMsdnMSI'
+#     KeyVaultName: 'carlocKeyVault'
+#     SecretsFilter: 'LSECosmosPSGalleryKey'
+
+# - task: PublishPackageToPowerShellGallery@0
+#   inputs:
+#     apiKey: 'key'
+#     path: 'module'
+#     setVersionNumberInManifest: false
+#     psd1FileName: 'psd1'
+#     version: 'version'
