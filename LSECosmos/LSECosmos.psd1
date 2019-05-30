@@ -51,7 +51,7 @@
     # ProcessorArchitecture = ''
 
     # Modules that must be imported into the global environment prior to importing this module
-    # RequiredModules = @()
+    RequiredModules        = @('Az.Resources')
 
     # Assemblies that must be loaded prior to importing this module
     # RequiredAssemblies = @()
@@ -69,7 +69,14 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    # FunctionsToExport      = '*'
+    FunctionsToExport      = @(
+        'Get-AzCachedAccessToken',
+        'Get-AzCosmosDbAccount', 
+        'Get-AzCosmosDbAccountKey',
+        'Get-AzCosmosDbDatabase',
+        'New-AzCosmosDbAccount',
+        'Remove-AzCosmosDbAccount'
+    )
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     # CmdletsToExport        = '*'
@@ -108,6 +115,8 @@
 
             # ReleaseNotes of this module
             # ReleaseNotes = ''
+
+            Prerelease = 'alpha'
 
         } # End of PSData hashtable
 
