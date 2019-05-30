@@ -95,10 +95,10 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags       = @('PSEdition_Desktop', 'PSEdition_Core', 'Windows', 'Linux', 'MacOS')
+            Tags       = @('PSEdition_Desktop', 'PSEdition_Core', 'Windows', 'Linux', 'MacOS', 'CosmosDb')
 
             # A URL to the license for this module.
-            # LicenseUri = ''
+            LicenseUri = 'https://github.com/carlocardella/LSECosmos/blob/master/LICENSE.MD'
 
             # A URL to the main website for this project.
             ProjectUri = 'https://github.com/carlocardella/LSECosmos'
