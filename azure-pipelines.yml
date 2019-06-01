@@ -19,17 +19,9 @@ steps:
   inputs:
     testResultsFormat: 'NUnit'
     testResultsFiles: '**/TEST-*.xml'
-
-# - task: AzureKeyVault@1
-#   inputs:
-#     azureSubscription: 'carlocMsdnMSI'
-#     KeyVaultName: 'carlocKeyVault'
-#     SecretsFilter: 'LSECosmosPSGalleryKey'
-
-# - task: PublishPackageToPowerShellGallery@0
-#   inputs:
-#     apiKey: 'key'
-#     path: 'module'
-#     setVersionNumberInManifest: false
-#     psd1FileName: 'psd1'
-#     version: 'version'
+    
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'LSECosmos_master_drop'
+    publishLocation: 'Container'
