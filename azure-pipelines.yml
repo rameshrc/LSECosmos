@@ -22,8 +22,8 @@ steps:
     
 - task: PublishBuildArtifacts@1
   inputs:
-    # PathtoPublish: '$(Build.SourcesDirectory)/LSECosmos'
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: '$(Build.SourcesDirectory)/LSECosmos'
+    # PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'LSECosmos'
     publishLocation: 'Container'
 
