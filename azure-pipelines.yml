@@ -30,4 +30,4 @@ steps:
 - task: PublishPipelineArtifact@0
   inputs:
     artifactName: 'LSECosmosDrop'
-    targetPath: '/LSECosmos'
+    targetPath: 'LSECosmos'
