@@ -19,13 +19,6 @@ steps:
   inputs:
     testResultsFormat: 'NUnit'
     testResultsFiles: '**/TEST-*.xml'
-    
-# - task: PublishBuildArtifacts@1
-#   inputs:
-#     PathtoPublish: '$(Build.SourcesDirectory)/LSECosmos'
-#     # PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-#     ArtifactName: 'LSECosmos'
-#     publishLocation: 'Container'
 
 - task: PublishPipelineArtifact@0
   inputs:
