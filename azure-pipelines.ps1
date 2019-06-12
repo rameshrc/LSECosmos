@@ -1,6 +1,10 @@
-"current location: $(Get-Location)"
-"script root: $PSScriptRoot"
-"retrieve available modules"
+
+[CmdletBinding()]
+param ()
+
+Write-Verbose "current location: $(Get-Location)"
+Write-Verbose "script root: $PSScriptRoot"
+Write-Verbose "retrieve available modules"
 $modules = Get-Module -list
 
 if ($modules.name -notcontains 'Az.Accounts') {
@@ -13,4 +17,11 @@ if ($modules.Name -notcontains 'Pester') {
     Install-Module -Name 'Pester' -Force -SkipPublisherCheck
 }
 
-Invoke-Pester -Script "./Tests/" -OutputFile "./Test-Pester.XML" -OutputFormat 'NUnitXML' -CodeCoverage "./LSECosmos/*.ps1"
+Invoke-Pester -Script "./Tests/" -OutputFile "./Test-Pester.XML" -OutputFormat 'NUnitXML' -CodeCoverage "./LSECosmos/*.ps1" -PassThru
+# $testResult = Invoke-Pester -Script "./Tests/" -OutputFile "./Test-Pester.XML" -OutputFormat 'NUnitXML' -CodeCoverage "./LSECosmos/*.ps1" -PassThru
+# if ($testResult.FailedCount -gt 0) {
+#     $false
+# }
+# else {
+#     $true
+# }
