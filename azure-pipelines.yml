@@ -10,24 +10,17 @@ pool:
   vmImage: 'windows-2019'
 
 steps:
-# - task: PowerShell@2
-#   displayName: Pester
-#   inputs:
-#     # filePath: 'azure-pipelines.ps1'
-#     script: 'Invoke-Pester -Script "./Tests/" -OutputFile "./Test-Pester.XML" -OutputFormat 'NUnitXML' -CodeCoverage "./LSECosmos/*.ps1"'
-#     pwsh: true
+  - task: PowerShell@2
+    inputs:
+      targetType: 'inline'
+      script: 'install-module -name az.accounts -scope currentuser -force
+        install-module -name az.resources -scope currentuser -force
+        install-module -name pester -scope currentuser -force
+        
+        Invoke-Pester -Script "./Tests/" -OutputFile "./Test-Pester.XML" -OutputFormat ''NUnitXML'' -CodeCoverage "./LSECosmos/*.ps1" -PassThru'
+      pwsh: true
 
-- task: PowerShell@2
-  inputs:
-    targetType: 'inline'
-    script: 'install-module -name az.accounts -scope currentuser -force
-      install-module -name az.resources -scope currentuser -force
-      install-module -name pester -scope currentuser -force
-      
-      Invoke-Pester -Script "./Tests/" -OutputFile "./Test-Pester.XML" -OutputFormat ''NUnitXML'' -CodeCoverage "./LSECosmos/*.ps1" -PassThru'
-    pwsh: true
-
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'NUnit'
-    testResultsFiles: '**/TEST-*.xml'
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: 'NUnit'
+      testResultsFiles: '**/TEST-*.xml'
