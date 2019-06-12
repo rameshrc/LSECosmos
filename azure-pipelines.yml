@@ -11,6 +11,7 @@ pool:
 
 steps:
 - task: PowerShell@2
+  displayName: Pester
   inputs:
     filePath: 'azure-pipelines.ps1'
     pwsh: true
