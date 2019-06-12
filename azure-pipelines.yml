@@ -13,9 +13,9 @@ steps:
   - task: PowerShell@2
     inputs:
       targetType: 'inline'
-      script: 'install-module -name az.accounts -scope currentuser -force
-        install-module -name az.resources -scope currentuser -force
-        install-module -name pester -scope currentuser -force
+      script: 'install-module -name az.accounts -scope currentuser -force;
+        install-module -name az.resources -scope currentuser -force;
+        install-module -name pester -scope currentuser -force;
         
         Invoke-Pester -Script "./Tests/" -OutputFile "./Test-Pester.XML" -OutputFormat ''NUnitXML'' -CodeCoverage "./LSECosmos/*.ps1" -PassThru'
       pwsh: true
