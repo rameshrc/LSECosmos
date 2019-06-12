@@ -13,7 +13,8 @@ steps:
 - task: PowerShell@2
   displayName: Pester
   inputs:
-    filePath: 'azure-pipelines.ps1'
+    # filePath: 'azure-pipelines.ps1'
+    script: 'Invoke-Pester -Script "./Tests/" -OutputFile "./Test-Pester.XML" -OutputFormat 'NUnitXML' -CodeCoverage "./LSECosmos/*.ps1"'
     pwsh: true
 
 - task: PublishTestResults@2
