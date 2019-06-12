@@ -21,7 +21,7 @@ steps:
     testResultsFormat: 'NUnit'
     testResultsFiles: '**/TEST-*.xml'
 
-# - task: PublishPipelineArtifact@0
-#   inputs:
-#     artifactName: 'LSECosmos'
-#     targetPath: 'LSECosmos'
+- task: PublishPipelineArtifact@0
+  inputs:
+    artifactName: 'LSECosmos'
+    targetPath: 'LSECosmos'
