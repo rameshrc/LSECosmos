@@ -12,7 +12,7 @@
     RootModule             = 'LSECosmos.psm1'
 
     # Version number of this module.
-    ModuleVersion          = '0.2.0'
+    ModuleVersion          = '0.2.3'
 
     # Supported PSEditions
     CompatiblePSEditions   = 'Desktop', 'Core'
@@ -30,7 +30,7 @@
     Copyright              = '(c) Carlo Cardella. All rights reserved.'
 
     # Description of the functionality provided by this module
-    Description = 'CosmosDb management module'
+    Description            = 'CosmosDb management module'
 
     # Minimum version of the PowerShell engine required by this module
     PowerShellVersion      = '5.1'
@@ -51,7 +51,7 @@
     # ProcessorArchitecture = ''
 
     # Modules that must be imported into the global environment prior to importing this module
-    # RequiredModules = @()
+    RequiredModules        = @('Az.Resources')
 
     # Assemblies that must be loaded prior to importing this module
     # RequiredAssemblies = @()
@@ -69,7 +69,14 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    # FunctionsToExport      = '*'
+    FunctionsToExport      = @(
+        'Get-AzCachedAccessToken',
+        'Get-AzCosmosDbAccount', 
+        'Get-AzCosmosDbAccountKey',
+        'Get-AzCosmosDbDatabase',
+        'New-AzCosmosDbAccount',
+        'Remove-AzCosmosDbAccount'
+    )
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     # CmdletsToExport        = '*'
@@ -95,19 +102,21 @@
         PSData = @{
 
             # Tags applied to this module. These help with module discovery in online galleries.
-            # Tags = @()
+            Tags       = @('PSEdition_Desktop', 'PSEdition_Core', 'Windows', 'Linux', 'MacOS', 'CosmosDb')
 
             # A URL to the license for this module.
-            # LicenseUri = ''
+            LicenseUri = 'https://github.com/carlocardella/LSECosmos/blob/master/LICENSE.MD'
 
             # A URL to the main website for this project.
-            # ProjectUri = ''
+            ProjectUri = 'https://github.com/carlocardella/LSECosmos'
 
             # A URL to an icon representing this module.
             # IconUri = ''
 
             # ReleaseNotes of this module
             # ReleaseNotes = ''
+
+            Prerelease = 'alpha'
 
         } # End of PSData hashtable
 
