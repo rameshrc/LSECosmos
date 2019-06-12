@@ -29,6 +29,12 @@ Describe 'Get-AzCosmosDbDatabase' {
             it 'Searchig for a non existing database, it should not return anything' {
                 LSECosmos\Get-AzCosmosDbDatabase -AccountName 'carloccosmos' -ResourceGroupName 'cosmosrg' -Name 'nonexistingdatabase' | Should -BeNullOrEmpty
             }
+            
+            It 'Passing a non existing AccountName it should return an error' {
+                { LSECosmos\Get-AzCosmosDbDatabase -AccountName 'nonexistingaccount' -ResourceGroupName 'cosmosrg' -ErrorVariable 'err' }
+                $err.Count | Should -Be 1
+                $err | Should -Be ("ResourceGroupNotFound : Resource group 'cosmosrg' could not be found.")
+            }
         }
     }
 }
