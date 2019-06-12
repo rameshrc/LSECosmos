@@ -20,6 +20,7 @@ steps:
   inputs:
     testResultsFormat: 'NUnit'
     testResultsFiles: '**/TEST-*.xml'
+    failTaskOnFailedTests: true
 
 - task: PublishPipelineArtifact@0
   inputs:
