@@ -18,10 +18,3 @@ if ($modules.Name -notcontains 'Pester') {
 }
 
 Invoke-Pester -Script "./Tests/" -OutputFile "./Test-Pester.XML" -OutputFormat 'NUnitXML' -CodeCoverage "./LSECosmos/*.ps1" -PassThru
-# $testResult = Invoke-Pester -Script "./Tests/" -OutputFile "./Test-Pester.XML" -OutputFormat 'NUnitXML' -CodeCoverage "./LSECosmos/*.ps1" -PassThru
-# if ($testResult.FailedCount -gt 0) {
-#     $false
-# }
-# else {
-#     $true
-# }
