@@ -1,2 +1,4 @@
 *.code-workspace
 test-pester.xml
+*.nupkg
+*.nuspec
