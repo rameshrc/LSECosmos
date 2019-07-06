@@ -9,31 +9,31 @@
 @{
 
     # Script module or binary module file associated with this manifest.
-    RootModule             = 'LSECosmos.psm1'
+    RootModule           = 'LSECosmos.psm1'
 
     # Version number of this module.
-    ModuleVersion          = '0.2.3'
+    ModuleVersion        = '0.2.5'
 
     # Supported PSEditions
-    CompatiblePSEditions   = 'Desktop', 'Core'
+    CompatiblePSEditions = 'Desktop', 'Core'
 
     # ID used to uniquely identify this module
-    GUID                   = '4e4bd46a-81bf-48c2-b499-c367c4f043b7'
+    GUID                 = '4e4bd46a-81bf-48c2-b499-c367c4f043b7'
 
     # Author of this module
-    Author                 = 'Carlo Cardella'
+    Author               = 'Carlo Cardella'
 
     # Company or vendor of this module
-    CompanyName            = ''
+    CompanyName          = ''
 
     # Copyright statement for this module
-    Copyright              = '(c) Carlo Cardella. All rights reserved.'
+    Copyright            = '(c) Carlo Cardella. All rights reserved.'
 
     # Description of the functionality provided by this module
-    Description            = 'CosmosDb management module'
+    Description          = 'CosmosDb management module'
 
     # Minimum version of the PowerShell engine required by this module
-    PowerShellVersion      = '5.1'
+    PowerShellVersion    = '5.1'
 
     # Name of the PowerShell host required by this module
     # PowerShellHostName = ''
@@ -42,7 +42,7 @@
     # PowerShellHostVersion = ''
 
     # Minimum version of Microsoft .NET Framework required by this module. This prerequisite is valid for the PowerShell Desktop edition only.
-    DotNetFrameworkVersion = '4.7.2'
+    # DotNetFrameworkVersion = '4.7.2'
 
     # Minimum version of the common language runtime (CLR) required by this module. This prerequisite is valid for the PowerShell Desktop edition only.
     # CLRVersion = ''
@@ -51,7 +51,7 @@
     # ProcessorArchitecture = ''
 
     # Modules that must be imported into the global environment prior to importing this module
-    RequiredModules        = @('Az.Resources')
+    RequiredModules      = @('Az.Resources')
 
     # Assemblies that must be loaded prior to importing this module
     # RequiredAssemblies = @()
@@ -69,7 +69,7 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport      = @(
+    FunctionsToExport    = @(
         'Get-AzCachedAccessToken',
         'Get-AzCosmosDbAccount', 
         'Get-AzCosmosDbAccountKey',
@@ -97,7 +97,7 @@
     # FileList = @()
 
     # Private data to pass to the module specified in RootModule/ModuleToProcess. This may also contain a PSData hashtable with additional module metadata used by PowerShell.
-    PrivateData            = @{
+    PrivateData          = @{
 
         PSData = @{
 
